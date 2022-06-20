@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import { location } from '../utils/location'
 import Button from './Button'
 import { getCity } from '../service/getCity'
-import Cards from './Card'
+import Cards from './Cards'
 import Loading from './Loading'
-import { getCityWeather } from '../utils/getListCity'
+import { getCityWeather } from '../utils/getCityWeather'
 
 const ContainerCard = styled.div`
   display: flex;
@@ -65,7 +65,7 @@ const SelectOptions = () => {
         setSelectCityWeather(cityWeather)
         setSelectedCity(city)
       } catch (e) {
-        alert('there was an error')
+        alert('Please try again in a few minutes. We are unable to complete the verification')
       }
     }
     fetchLocation()
@@ -79,7 +79,7 @@ const SelectOptions = () => {
       const cityWeather = getCityWeather(list)
       setSelectCityWeather(cityWeather)
     } catch (error) {
-      alert('there was an error')
+      alert('Please try again in a few minutes. We are unable to complete the verification')
     } finally {
       setIsLoading(false)
       setIsDisabled(true)
@@ -101,7 +101,7 @@ const SelectOptions = () => {
   if (!currentCity || isLoading) return <Loading />
   return (
     <div>
-      <Select onChange={(e) => handlerChange(e)}>
+      <Select data-testid='select' onChange={(e) => handlerChange(e)}>
         <option value={currentCity}>{currentCity}</option>
         <option value="Rosario">Rosario</option>
         <option value="Paris">Paris</option>
@@ -113,6 +113,7 @@ const SelectOptions = () => {
         disabled={isDisabled}
         handleClick={handleClickSearch}
         title="Search weather"
+
       />
       <ContainerCard>{renderWeatherCards()}</ContainerCard>
     </div>
