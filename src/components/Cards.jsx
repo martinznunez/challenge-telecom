@@ -53,7 +53,7 @@ const Cards = ({ weather }) => {
               alt="Logo"
 
             />
-            <h2 data-testid='date-title'> {formatDate(date)}</h2>
+            <h2 > {formatDate(date)}</h2>
             <p>{description}</p>
             <p>Min: {min} °C</p>
             <p>Max: {max} °C</p>
