@@ -4,6 +4,10 @@ First, run the development server:
 
 npm i, npm start.
 
+crear un archivo en la raiz .env con la variable
+
+REACT_APP_ACCESS_KEY
+
 ● Debe existir un SELECTOR con cinco ciudades preestablecidas arbitrariamente por
 el candidato.
 ● El desafío debe funcionar en ambiente local.
