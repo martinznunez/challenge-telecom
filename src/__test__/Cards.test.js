@@ -28,7 +28,5 @@ describe('WeatherDayCard', () => {
     expect(max).toBeInTheDocument()
     expect(humidity).toBeInTheDocument()
     expect(img).toHaveAttribute('alt', 'Logo')
-
-    screen.debug()
   })
 })
